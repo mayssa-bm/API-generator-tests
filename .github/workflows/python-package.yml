@@ -34,10 +34,10 @@ jobs:
     - name: check docker installation
       run: docker run hello-world
     - name: push to docker Hub
-      uses: docker/build-push-action@v2.4.0
+      uses: docker/build-push-action@v1
       with:
         username: maissa47
         password: ${{secrets.DOCKER_PASSWORD}}
-        repository: docker push maissa47/api-generator
+        repository: maissa47/api-generator
         tage_with_ref: true
         
