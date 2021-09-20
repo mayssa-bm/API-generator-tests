@@ -34,7 +34,7 @@ jobs:
     - name: check docker installation
       run: docker run hello-world
     - name: push to docker Hub
-      uses: opspresso/action-docker@v0.3.9
+      uses: docker/build-push-action@v2.4.0
       with:
         username: maissa47
         password: ${{secrets.DOCKER_PASSWORD}}
