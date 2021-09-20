@@ -34,8 +34,13 @@ jobs:
         pytest test.py
     - name: check docker installation
       run: docker run hello-world
-    - name: push to docker Hub
-      uses: opspresso/action-docker@v0.3.9
-      with: 
-        username: maissa47
-        password: ${{DOCKER_PASSWORD}}
+      
+    - name: Build & Push to Docker Hub
+      uses: opspresso/action-docker@master
+      with:
+          args: --docker
+      env:
+          USERNAME: maissa47
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          TAG_NAME: "v0.0.1"
+          BUILDX: "true"
