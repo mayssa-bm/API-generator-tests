@@ -35,11 +35,4 @@ jobs:
     - name: check docker installation
       run: docker run hello-world
     - name: push to docker Hub
-      uses: mr-smithers-excellent/docker-build-push@v5.6
-      with:
-        image: api-generator 
-        registry: Docker Hub
-        username: maissa47
-        password: ${{DOCKER_PASSWORD}}
- 
-        
+      uses: opspresso/action-docker@v0.3.9
