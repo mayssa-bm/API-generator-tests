@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
+        python-version: [3.7]
 
     steps:
     - uses: actions/checkout@v2
@@ -34,10 +34,11 @@ jobs:
     - name: check docker installation
       run: docker run hello-world
     - name: push to docker Hub
-      uses: docker/build-push-action@v2
+      uses: mr-smithers-excellent/docker-build-push@v5.6
       with:
+        image: api-generator 
+        registry: Docker Hub
         username: maissa47
-        password: ${{secrets.DOCKER_PASSWORD}}
-        repository: maissa47/api-generator
-        tage_with_ref: true
+        password: ${{DOCKER_PASSWORD}}
+ 
         
