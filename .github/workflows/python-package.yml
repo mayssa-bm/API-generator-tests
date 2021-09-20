@@ -31,3 +31,13 @@ jobs:
       run: |
         pip install pytest
         pytest test.py
+    - name: check docker installation
+      run: docker run hello-world
+    - name: push to docker Hub
+      uses: opspresso/action-docker@v0.3.9
+      with:
+        username: maissa47
+        password: ${{secrets.DOCKER_PASSWORD}}
+        repository: docker push maissa47/api-generator
+        tage_with_ref: true
+        
